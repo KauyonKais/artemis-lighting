@@ -1,0 +1,81 @@
+﻿/* CSS layout */
+#masthead {
+}
+#top_nav {
+}
+#page_content {
+}
+#footer {
+}
+body {
+    background-color: black;
+    color: white;
+    background-image: url('http://www.publicdomainpictures.net/download-picture.php?adresar=80000&soubor=starfield-background.jpg')
+}
+/* unvisited link */
+a:link {
+    color: aqua;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+/* unvisited link */
+a.anchor:link {
+    color: white;
+}
+
+/* visited link */
+a.anchor:visited {
+    color: white;
+}
+
+/* mouse over link */
+a.anchor:hover {
+    color: white;
+}
+
+/* selected link */
+a.anchor:active {
+    color: white;
+}
+
+
+table {
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-collapse: collapse;
+	padding: 2px;
+}
+td {
+	border-style: solid;
+	border-width: 1px;
+	padding: 2px;
+}
+.style6 {
+	border-style: solid;
+	border-width: 1px;
+	padding: 2px;
+}
+h1 {
+	margin-bottom:.0001pt;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;
+	margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}

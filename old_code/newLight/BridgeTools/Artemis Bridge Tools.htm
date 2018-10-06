@@ -1,0 +1,3240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"><head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>Artemis Bridge Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="Artemis%20Bridge%20Tools-Dateien/Artemis.css">
+<style type="text/css">
+.style3 {
+				font-family: "Courier New", Courier, monospace;
+}
+.style4 {
+				font-family: "Times New Roman";
+}
+.style5 {
+				border-style: solid;
+				border-width: 0px;
+}
+.style7 {
+				margin-left: 40px;
+}
+.style10 {
+				text-decoration: underline;
+}
+.style11 {
+				color: red;
+}
+.style13 {
+				font-size: medium;
+}
+.style14 {
+				font-family: "Times New Roman";
+				font-size: small;
+}
+.style15 {
+				font-size: x-small;
+}
+.style16 {
+				font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<div id="masthead">
+				<h1>Artemis Bridge Tools<br>
+				<span class="style13">(includes both "Artemis DMX Tools" 
+				and "Artemis Mission Browser")</span></h1>
+</div>
+<div id="top_nav">
+&nbsp;<a href="#Features">Features</a> &nbsp;<a href="#Download">Download</a>&nbsp;
+				<a href="#HowTo">HowTo</a>&nbsp; <a href="#Technical_Details">
+Technical Details</a>&nbsp;
+				<a href="http://www.armidalesoftware.com/Artemis/ChangeLog.htm">ChangeLog</a>&nbsp;
+				<a href="#TODO">TODO</a>&nbsp; <a href="#Contact">Contact</a></div>
+<div id="page_content">
+				<h2>
+				<a name="Features" class="anchor">Features</a></h2>
+				<p class="style10">DMX Functionality:</p>
+				<ul>
+								<li>Use <a href="#New_DMX_Cues">additional DMX cues</a> with Artemis SBS<ul>
+												<li>Helm: WARP_{1-4}, 
+												IMPULSE_{1,20,40,60,80,100}, 
+												REVERSE_IMPULSE</li>
+												<li>Weapons: BEAM_FIRED, 
+												BEAM{1-10}_FIRED, TUBE{1-6}_EMPTY, 
+												TUBE{1-6}_{LOADING,READY_TO_FIRE,UNLOADING,FIRED}_{HOMING,NUKE,MINE,EMP,PSHOCK}</li>
+												<li>Engineering: 
+												SYSTEM_OVERHEATING</li>
+								</ul>
+								</li>
+								<ul>
+												<li>Science: SCAN_INITIATED, 
+												SCAN_IN_PROGRESS, SCAN_COMPLETE</li>
+												<li>Comms: INCOMING_COMMUNICATION_PRI{0-8}</li>
+												<li>Fighter: FIGHTER_LAUNCHED, 
+												FIGHTER_DOCKED, 
+												ALL_FIGHTERS_DOCKED</li>
+												<li>Damage: 
+												{FRONT,REAR}_SHIELDS_{20,40,60,80,100}, 
+												HULL_INTEGRITY_{40,60,80,100}</li>
+												<li>Game: ALWAYS_ON, GAME_PAUSED</li>
+												<li>Custom: CUSTOM_EVENT_{1-4}, 
+												CUSTOM_STATE_{1-4}</li>
+								</ul>
+								<li>Enable logging of DMX events to a file for 
+								debugging or other analysis</li>
+								<li>Manage multiple DMXcommands profiles and 
+								easily switch between them</li>
+								<li>Simple user interface for creating, 
+								editing, and testing DMXcommands configurations 
+								including built-in support for adding various 
+								chase-light effects and gauges</li>
+								<li>More advanced DMX event capabilities such as
+								<a href="#How_to_create_a_gradual_transition_into_a_continuous_effect">
+								fading</a> between colors, simple "if" 
+								conditions, etc.</li>
+								<li>Support for more types of devices:<ul>
+												<li>Support playing 
+												<a href="#How_to_trigger_playing_a_sound_file_in_response_to_a_DMX_cue">audio clips</a> in response 
+								to DMX cues</li>
+												<li>Use an Enttec DMX Open, Enttec 
+												DMX Pro, Art-Net, 
+								or uDMX (needs testing) controller with Artemis SBS</li>
+												<li>Use wireless IP lights such as
+												<a href="http://www.amazon.com/Philips-431643-Personal-Wireless-Frustration/dp/B00BSN8DN4/ref=sr_1_1?ie=UTF8&amp;qid=1427948009&amp;sr=8-1&amp;keywords=Philips+Hue">Philips Hue</a>,
+								<a href="http://www.limitlessled.com/">Limitless 
+								LED</a>, and LIFX (<a href="http://www.lifx.com/products/the-original?variant=1190662175">Color</a> 
+								or
+								<a href="http://www.amazon.com/LIFX-White-Adjustable-Dimmable-Required/dp/B00XUW0ZFU/ref=sr_1_2?ie=UTF8&amp;qid=1436748353&amp;sr=8-2&amp;keywords=lifx">White</a>) 
+								with Artemis SBS</li>
+								</ul>
+								</li>
+				</ul>
+				<p class="style10">Mission Tracking:</p>
+				<ul>
+								<li>Enable automatic logging of results of 
+								missions<ul>
+												<li>Easily browse what missions 
+												you've completed and which you 
+												haven't, using <strong>Artemis Mission 
+												Browser</strong> (included)</li>
+												<li>Easily see which, if any, 
+												missions have caused the Artemis 
+												server to crash</li>
+								</ul>
+								</li>
+				</ul>
+				<h2><a name="Download" class="anchor">Download</a></h2>
+				<ul>
+								<li>
+								<a href="http://www.armidalesoftware.com/Artemis/ArtemisBridgeToolsInstaller.2.10.msi">Latest version</a></li>
+				</ul>
+				<p><strong>Artemis Bridge Tools</strong> currently assumes <strong>
+				Artemis SBS</strong> is in one of the following locations:</p>
+				<ul>
+								<li>%ProgramFiles%\Artemis</li>
+								<li>%ProgramFiles(x86)%\Artemis</li>
+								<li>%SystemDrive%\Games\Artemis</li>
+								<li>%LocalAppData%\Artemis</li>
+								<li>%UserProfile%\Desktop\Artemis</li>
+								<li>%ProgramFiles%\Artemis DEMO</li>
+								<li>%ProgramFiles(x86)%\Artemis DEMO</li>
+								<li>%SystemDrive%\Games\Artemis DEMO</li>
+								<li>%LocalAppData%\Artemis DEMO</li>
+								<li>%UserProfile%\Desktop\Artemis DEMO</li>
+				</ul>
+				<p>If it is, installation will complete normally.</p>
+				<p>If your installation directory is not one of the above (e.g., 
+				you have some other Steam directory), <strong>Artemis Bridge Tools</strong> 
+				can still be installed, but the installer will warn that Artemis 
+				was not found, and <strong>Artemis Bridge Tools </strong>won't be 
+				fully enabled for use until you install the mod to one or more 
+				Artemis directories, which you can do as follows:</p>
+				<ol>
+								<li>
+								Launch ArtemisDmxEditor</li>
+								<li>
+								If the "Mod Installation Locations" screen does 
+								not appear, do <strong>File <span class="style4">
+								→ Manage Artemis Install Locations...</span></strong></li>
+								<li>
+								Click <strong>Add...</strong></li>
+								<li>
+								Navigate to and select the 
+								Artemis.exe file in the desired location</li>
+								<li>
+								Click<strong> Open</strong></li>
+								<li>
+								<p class="MsoNormal">If asked "Do you want to 
+								allow this app to make changes to your PC?" then 
+								click <strong>Yes</strong>.</p>
+								</li>
+				</ol>
+				<p>Note: if you later want to completely uninstall Artemis 
+				Bridge Tools, you should do so from the Control Panel 
+				("Uninstall a program").&nbsp;&nbsp; Currently uninstalling 
+				fails if attempted from the System "Apps &amp; features" page, but 
+				works fine from Control Panel.</p>
+				<h2><a name="HowTo" class="anchor">HowTo</a></h2>
+				<p>Basics:</p>
+				<ul>
+								<li><a href="#How_to_get_started">How to get 
+								started</a></li>
+								<li>
+								<a href="#How_to_test_and_debug_a_DMXcommands_profile">How to test and debug a DMXcommands profile</a></li>
+								<li>
+								<a href="#How_to_enable_logging_of_DMX_events_to_a_file">How to enable logging of DMX events to a file</a></li>
+								<li>
+								<a href="#How_to_enable_logging_of_DMX_events_to_a_socket">
+								How to enable logging of DMX events to a socket 
+								and optionally trigger custom DMX effects</a></li>
+								<li>
+								<a href="#How_to_trigger_custom_DMX_events_from_a_mission_script">
+								How to trigger custom DMX events from a mission 
+								script</a></li>
+								<li>
+								<a href="#How_to_browse_past_scripted_mission_results">
+								How to browse previous mission results</a></li>
+				</ul>
+				<p>Fancy Effects:</p>
+				<ul>
+								<li>
+								<a href="#How_to_stack_a_set_of_related_events_on_the_same_light">How to stack a set of related events on the same 
+								light</a></li>
+								<li>
+								<a href="#How_to_create_a_chase_effect_using_a_series_of_lights">How to create a chase effect using a series of 
+								lights</a></li>
+								<li>
+								<a href="#How_to_create_a_gauge_using_a_series_of_lights">How to create a gauge using a series of lights</a></li>
+								<li>
+								<a href="#How_to_create_a_gradual_transition_into_a_continuous_effect">How to create a gradual transition into a 
+								continuous effect</a></li>
+								<li>
+								<a href="#How_to_make_an_effect_only_occur_based_on_some_other_condition">
+								How to make an effect only occur based 
+								on some other condition</a></li>
+								<li><a href="http://www.armidalesoftware.com/Artemis/AddingANebulaEffect.htm">How to add 
+								Badgeguy's awesome nebula effect</a></li>
+				</ul>
+				<p>Device Types:</p>
+				<ul>
+								<li>
+								<a href="#How_to_trigger_playing_a_sound_file_in_response_to_a_DMX_cue">How to trigger playing a sound file in response 
+								to a DMX cue</a></li>
+								<li>
+								<a href="#How_to_use_an_Enttec_DMX_Pro_controller_with_Artemis_SBS">How to use an Enttec DMX Pro controller with 
+								Artemis SBS</a></li>
+								<li>
+								<a href="#How_to_use_an_Art-Net_controller_with_Artemis_SBS">How to use an 
+								Art-Net controller with 
+								Artemis SBS</a></li>
+								<li>
+								<a href="#How_to_use_a_UDMX_controller_with_Artemis_SBS">How to use a 
+								uDMX controller with 
+								Artemis SBS</a></li>
+								<li>
+								<a href="#How_to_use_Philips_Hue_lights_with_Artemis_SBS">How to use Philips Hue lights with Artemis SBS</a></li>
+								<li>
+								<a href="#How_to_use_LIFX_light_bulbs_with_Artemis_SBS">How to use LIFX light bulbs with Artemis SBS</a></li>
+								<li>
+								<a href="#How_to_use_LimitlessLED_lights_with_Artemis">
+								How to use LimitlessLED lights with Artemis SBS</a></li>
+				</ul>
+				<h3><a name="How_to_get_started" class="anchor">How to get started</a></h3>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong>.&nbsp; 
+								You should initially see one profile, already 
+								activated, named DMXcommands.&nbsp; This is the 
+								current Artemis SBS settings.&nbsp; The editor 
+								will attempt to automatically detect your DMX 
+								device configuration based on your DMXcommands 
+								file.</li>
+								<li>Under DMX Devices, click <strong>Edit...
+								</strong>to verify it was detected correctly.&nbsp;&nbsp; 
+								On the left will be "Virtual Input Devices", 
+								which are what Artemis sees.&nbsp;&nbsp; On the 
+								left will be "Associated Output Devices", being 
+								what each maps to (typically a one output device 
+								per input device).</li>
+				</ol>
+				<p>If you later need to edit the DMXcommands.xml file manually 
+				or with any other program, you will need to use a file in the "%LocalAppData%\ArtemisBridgeTools\" 
+				directory (where the filename is listed in the 
+				ActiveProfileFileName.txt file there), NOT the one in your Artemis\dat directory.&nbsp; If you 
+				uninstall Artemix Bridge Tools, your active DMXcommands profile 
+				will be put back into your Artemis\dat directory.</p>
+				<h3><a name="How_to_test_and_debug_a_DMXcommands_profile" class="anchor">How to test and debug a DMXcommands profile</a></h3>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>If the profile to test is not already the 
+								Active Profile, select the profile and click
+								<strong>Activate</strong></li>
+								<li>OPTIONAL: If you want to test with<em> </em>the 
+								physical devices but <em>also</em> see the 
+								results on screen:<ul>
+												<li>Create a copy of the active 
+												DMX Device Profile by clicking
+												<strong>Copy...</strong> under 
+												DMX Devices and giving it a new 
+												name (e.g., "RealAndEmulatedDevices")</li>
+												<li>Click <strong>Edit...</strong> 
+												under DMX Devices</li>
+												<li>Select each virtual input 
+												device and <strong>Add</strong> 
+												a second associated output 
+												device, and change its <strong>
+												Device Type</strong> to&nbsp; 
+												"emul-dmx-1ch", "emul-dmx-3ch", 
+												or "emul-dmx-4ch" (depending on 
+												whether the device uses 1, 3, or 
+												4 channels)</li>
+								</ul>
+								</li>
+								<ul>
+												<li>Click <strong>Save</strong></li>
+												<li>Click <strong>Edit...
+												</strong>under Artemis DMX 
+												Commands</li>
+												<li>Change the <strong>DMX 
+												Device Profile</strong> in the 
+												top left corner to the new name 
+												you created above</li>
+												<li>Select "Reload the Artemis 
+												DMX command profile using the 
+												new DMX Device Profile" and 
+												click <strong>OK </strong>and 
+												then <strong>Save</strong>. 
+												Artemis will now temporarily use 
+												the emulated devices rather than 
+												your physical devices.&nbsp;&nbsp; 
+												This can be changed back to the 
+												real devices the same way, by 
+												changing the <strong>DMX Device 
+												Profile</strong> back to its 
+												original value.</li>
+								</ul>
+								<li>OPTIONAL: If you want to test <em>without</em> using 
+								the physical devices, just see the results on 
+								screen (currently only four devices can be 
+								displayed, this will change in the future):<ul>
+												<li>Create a copy of the active 
+												DMX Device Profile by clicking
+												<strong>Copy...</strong> under 
+												DMX Devices and giving it a new 
+												name (e.g., "EmulatedDevices")</li>
+												<li>Click <strong>Edit...</strong> 
+												under DMX Devices</li>
+												<li>Select each virtual input 
+												device and change the <strong>Output 
+												Type</strong> of each associated 
+												output device to "emul-dmx-1ch", 
+												"emul-dmx-3ch", or 
+												"emul-dmx-4ch" (depending on 
+												whether the device uses 1, 3, or 
+												4 channels)</li>
+												<li>Click <strong>Save</strong></li>
+												<li>Click <strong>Edit...
+												</strong>under Artemis DMX 
+												Commands</li>
+												<li>Change the <strong>DMX 
+												Device Profile</strong> in the 
+												top left corner to the new name 
+												you created above</li>
+												<li>Select "Reload the Artemis 
+												DMX command profile using the 
+												new DMX Device Profile" and 
+												click <strong>OK </strong>and 
+												then <strong>Save</strong>. 
+												Artemis will now temporarily use 
+												the emulated devices rather than 
+												your physical devices.&nbsp;&nbsp; 
+												This can be changed back to the 
+												real devices the same way, by 
+												changing the <strong>DMX Device 
+												Profile</strong> back to its 
+												original value.</li>
+								</ul>
+								</li>
+								<li>Click <strong>Test Active...</strong> to 
+								begin testing</li>
+								<li>Select cues to be set and hit <strong>Apply</strong>.&nbsp; 
+								Repeat until done.</li>
+								<li>Click <strong>Stop Testing</strong></li>
+								<li>OPTIONAL: If you changed the associated 
+								device profile in step 3 or 4 above, you can now 
+								change it back.</li>
+				</ol>
+				<h3><a name="How_to_enable_logging_of_DMX_events_to_a_file" class="anchor">How to enable logging of DMX events to a file</a></h3>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>If the profile to test is not already the 
+								Active Profile, select the profile and click
+								<strong>Activate</strong></li>
+								<li>Click <strong>Edit...</strong></li>
+								<li>Click the <strong>Log Artemis Events
+								</strong>checkbox in the upper right corner</li>
+								<li>Click <strong>Save</strong>.&nbsp;&nbsp; 
+								Logging will now be enabled whenever Artemis SBS 
+								runs.&nbsp; (Artemis DMX Editor need not be 
+								running.)</li>
+				</ol>
+				<p>The log file can be found in "%LocalAppData%\ArtemisBridgeTools\ArtemisLog.txt" 
+				and one easy way to find it is:</p>
+				<ol>
+								<li>&nbsp;Run <strong>Artemis DMX Editor</strong></li>
+								<li>Do <strong>File</strong><span class="style4"><strong>→</strong></span><strong>Open 
+								File Location</strong></li>
+								<li>Double click on ArtemisLog.txt</li>
+				</ol>
+				<p>Events are logged using the format illustrated
+				below where the first column is number of seconds since start, 
+				second column is the cue name, and 1 
+				means set, and 0 means cleared, e.g.:<span id="post_message_1286329559"><br>
+				<br>
+				<span class="style3">117.640 
+ENERGY_20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+				=&nbsp; 1<br>
+				139.906 
+ENERGY_20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ =&nbsp; 0</span></span></p>
+				<h3><a name="How_to_enable_logging_of_DMX_events_to_a_socket" class="anchor">
+				How to enable logging of DMX events to a socket and optionally 
+				trigger custom DMX effects</a></h3>
+				<p>You can view DMX cues in real time over a socket, so that you 
+				can consume them programmatically, such as from a Python script, 
+				or display them on your screen.&nbsp;&nbsp; For example, to 
+				display them on your screen, you might connect to Artemis SBS 
+				using a command such as "telnet 127.0.0.1 2012" (the telnet 
+				client comes with Windows but is an optional component and must 
+				first be enabled using "Turn Windows features on or off" via the 
+				Windows control panel).</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>If the profile to test is not already the 
+								Active Profile, select the profile and click
+								<strong>Activate</strong></li>
+								<li>Click <strong>Edit...</strong></li>
+								<li>Enter an unused port number (e.g., "2012") 
+								in the <strong>Tracing Port</strong> box at the 
+								top</li>
+								<li>Click <strong>Save</strong>.&nbsp;&nbsp; 
+								Whenever Artemis SBS 
+								runs, it will now listen on that port.&nbsp; (Artemis DMX Editor need not be 
+								running.)</li>
+				</ol>
+				<p>To view the events in real time, you will need to connect to 
+				that port after starting Artemis.&nbsp; Only one connection to 
+				that port at a time is supported.</p>
+				<p>Events are logged using the format illustrated
+				below where the first column is number of seconds since start, 
+				second column is the cue name, and 1 
+				means set, and 0 means cleared, e.g.:<span id="post_message_1286329560"><br>
+				<br>
+				<span class="style3">117.640 
+ENERGY_20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+				=&nbsp; 1<br>
+				139.906 
+ENERGY_20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ =&nbsp; 0</span></span></p>
+				<p>You can also use a socket from your own program (e.g., a 
+				Python script) to trigger custom DMX cues.&nbsp; The syntax is "dmxset
+				<em>cuename</em>[=<em>value</em>]", where <em>cuename</em> is 
+				the name of one of the custom cues (CUSTOM_{EVENT,STATE}_{1-4}), 
+				and <em>value </em>is 0 or 1. If <em>value</em> is not present, 
+				it defaults to 1.&nbsp; Some examples are:</p>
+				<p><span id="post_message_1286329561">
+				<span class="style3">dmxset CUSTOM_STATE_1 =&nbsp;1<br>
+				dmxset CUSTOM_STATE_1=0<br>
+				dmxset CUSTOM_EVENT_1</span></span></p>
+				<p>Event cues need not be cleared, they will be triggered each 
+				time the value is set to 1.</p>
+				<h3>
+				<a name="How_to_trigger_custom_DMX_events_from_a_mission_script" class="anchor">
+				How to trigger custom DMX events from a mission script</a></h3>
+				<p>You can use a log command from within a mission to trigger 
+				custom DMX cues.&nbsp; The syntax to write to the log file is "dmxset
+				<em>cuename</em>[=<em>value</em>]", where <em>cuename</em> is 
+				the name of one of the custom cues (CUSTOM_{EVENT,STATE}_{1-4}), 
+				and <em>value </em>is 0 or 1. If <em>value</em> is not present, 
+				it defaults to 1.&nbsp; Some examples are:</p>
+				<p class="style3">&lt;log text="dmxset CUSTOM_STATE_1 = 1" /&gt;<br>
+				&lt;log text="dmxset CUSTOM_STATE_1=0" /&gt;<br>
+				&lt;log text="dmxset CUSTOM_EVENT_1" /&gt;</p>
+				<p>Event cues need not be cleared, they will be triggered each 
+				time the value is set to 1.</p>
+				<h3><a name="How_to_browse_past_scripted_mission_results" class="anchor">How to 
+				browse previous mission results</a></h3>
+				<ol>
+								<li>Run <strong>Artemis Mission Browser</strong></li>
+								<li>A number of columns are displayed by default:<ul>
+												<li>Mission name</li>
+												<li>Status: completed if 
+												completed successfully, 
+												Incomplete if started but never 
+												completed successfullly, blank 
+												if never attempted</li>
+												<li>Tries: number of attempts</li>
+												<li>Crashes: number of attempts 
+												that resulted in Artemis server 
+												crashing</li>
+												<li>Difficulty (Max completed): 
+												highest difficulty level at 
+												which the mission was completed 
+												successfully</li>
+												<li>Date played (Max): date of 
+												last attempt, if any</li>
+								</ul>
+								</li>
+								<li>Optionally use <strong>Data</strong><span class="style4"><strong>→Hide 
+								Completed</strong> to only see uncompleted 
+								missions, if you're just looking for a new 
+								mission to try</span></li>
+								<li>Optionally add other data that isn't 
+								displayed by default by doing <strong>Data</strong><span class="style4"><strong>→Columns...</strong>, 
+								where columns may be added/removed either by 
+								double-clicking, or by selecting and using the
+								<strong>Add&gt;&gt;</strong> or <strong>&lt;&lt;Remove</strong> 
+								buttons.</span></li>
+								<li>Optionally sort rows by clicking on the 
+								header of the column you wish to sort by</li>
+				</ol>
+				<h3>
+				<a name="How_to_create_a_gradual_transition_into_a_continuous_effect" class="anchor">
+				How to create a gradual transition into a continuous effect</a></h3>
+				<p>
+				Artemis SBS itself is limited in the ability to create a gradual 
+				transition into a continuous effect, but Artemis Bridge Tools makes 
+				this much easier by allowing any continuous effect to have a set 
+				of 0 or more "entrance" timeblocks that play only once at the 
+				beginning of the effect, and a set of 0 or more "exit" 
+				timeblocks that play at the end of the effect.&nbsp; There may 
+				be multiple entrance and exit timeblocks if desired, but any 
+				entrance timeblocks must occur at the beginning of the command, 
+				and any exit timeblocks must occur at the end of the command.&nbsp; 
+				For example:</p>
+				<p class="style7">
+				&lt;event type="NORMAL_CONDITION_1" continuous="yes"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;timeblock mseconds="1500" <span class="style11"><strong>
+				phase="entrance"</strong></span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Various setvalues go here that 
+				only happen once when a game is started... --&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/timeblock&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;timeblock mseconds="1000"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Various setvalues go here for 
+				the normal effect after any entrance timeblocks complete --&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/timeblock&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;timeblock mseconds="1500" <span class="style11"><strong>
+				phase="exit"</strong></span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Various setvalues go here that 
+				only happen once when a game is ended... --&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/timeblock&gt;</p>
+				<p>
+				In the example above, when a game is started, any entrance 
+				timeblocks play first, then the normal timeblocks play in a 
+				continuous loop until the game ends, at which point the exit 
+				timeblocks play.&nbsp;&nbsp; This illustrates that entrance/exit 
+				timeblocks on a continuous command obviate the need to have 
+				separate event cues (such as GAME_OVER, which didn't work 
+				anyway) that occur when some state cue is set or cleared.&nbsp; 
+				So many event cues, such as PLAYER_SHIELDS_{RAISED,LOWERED}, 
+				become redundant in this mechanism, meaning you can either use 
+				them normally OR just use entrance/exit timeblocks on the 
+				associated state cue. </p>
+				<p>
+				Let's look at two common cases of desired effects: </p>
+				<p>
+				1) <a href="#Moving_across_a_series_of_lights">an effect that 
+				gradually moves in across a series of lights</a>, and<br>
+				2)
+				<a href="#Gradually_changing_one_or_more_lights_as_a_set_from_an_arbitrary_color_to_a_fixed_color">
+				an effect that gradually changes all lights in a set together</a></p>
+				<h4>
+				<a name="Moving_across_a_series_of_lights">Moving in across a series of lights</a></h4>
+				<p>
+				Say you 
+				have a set of lights that are all white under 
+				NORMAL_CONDITION_1 or all purple under WITHIN_NEBULA.&nbsp; When 
+				you raise shields, you want them to transition to blue in 
+				series, one every 500 ms, and 
+				<em>then</em> use a continuous blue effect for all those lights with 
+				PLAYER_SHIELDS_UP.&nbsp;&nbsp; Without Artemis Bridge Tools, this 
+				is problematic since all the lights will go blue at the same 
+				time because PLAYER_SHIELDS_UP masks the existing condition 
+				(NORMAL_CONDITION_1 or WITHIN_NEBULA) immediately upon raising shields 
+				so there's no way for PLAYER_SHIELDS_RAISED to let any lights 
+				use the pre-existing condition.&nbsp; To do so gradually and 
+				allow the existing effect to remain on some lights as you 
+				override them sequentially, you 
+				would need to delay the PLAYER_SHIELDS_UP effect to begin at the end 
+				of the PLAYER_SHIELDS_RAISED.</p>
+				<p>
+				To solve this, you can use an entrance timeblock with a duration 
+				of 1500ms (assuming your PLAYER_SHIELDS_RAISED duration is 
+				1500ms) to delay the normal effect until then.&nbsp;&nbsp; You 
+				can either use PLAYER_SHIELDS_RAISED normally and use an empty 
+				(no devices/setvalues) entrance timeblock in your 
+				PLAYER_SHIELDS_UP, <em>or</em> you can simply omit 
+				PLAYER_SHIELDS_RAISED and just put your shields-up effect in the 
+				entrance timeblock of PLAYER_SHIELDS_UP.</p>
+				<p>
+				This scenario is easy to accomplish with Artemis DMX Editor, as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> to edit your 
+								DMX command profile</li>
+								<li>Find or create the continuous effect you 
+								want to delay (PLAYER_SHIELDS_UP in the example 
+								above).</li>
+								<li>Add a timeblock (and move it up to the top 
+								of the command if not already there), and then 
+								change the value in the "Phase" column to 
+								"entrance".</li>
+								<li>Fill in the entrance timeblock(s) with the 
+								non-continuous transition effect.</li>
+								<li>If you also want an exit effect, add a 
+								timeblock (making sure it's at the bottom of the 
+								command), and change the value in the "Phase" 
+								column to "exit".</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h4>
+				<a name="Gradually_changing_one_or_more_lights_as_a_set_from_an_arbitrary_color_to_a_fixed_color">
+				Gradually changing one or more lights as a set</a></h4>
+				<p>Say you have a light (or set of lights) that are all white 
+				under NORMAL_CONDITION_1 or all purple under WITHIN_NEBULA.&nbsp; 
+				When you raise shields, you want it to (say) slowly transition 
+				(or fade) to blue.&nbsp; Without Artemis Bridge Tools, this is 
+				problematic since the PLAYER_SHIELDS_RAISED and 
+				PLAYER_SHIELDS_ON cues will take effect 
+				and override the base condition immediately, and transition from 
+				whatever the start color is for the first timeblock.</p>
+				<p>Instead, we want to cause the PLAYER_SHIELDS_RAISED effect 
+				(or the entrance timeblock of PLAYER_SHIELDS_ON) to 
+				slowly transition from transparent to opaque, so that it will 
+				fade from white to blue, or from purple to blue, depending on 
+				the previous color.&nbsp;&nbsp; This is easy to accomplish with 
+				Artemis DMX Editor, as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> to edit your 
+								DMX command profile</li>
+								<li>Find or create the transition 
+								effect, such as a non-continuous PLAYER_SHIELDS_RAISED 
+								(making sure it is <em>after</em> any relevant 
+								continuous cues such as PLAYER_SHIELDS_ON, 
+								FRONT_SHIELD_*, or REAR_SHIELD_*) or an entrance 
+								timeblock on a continuous PLAYER_SHIELDS_ON.&nbsp;&nbsp; 
+								The color should typically use the same start 
+								and end color (no change values).</li>
+								<li>Change the value in the timeblock's "Fade" 
+								column from blank to "in" to fade in, which will 
+								cause the entire timeblock (and all device 
+								settings within that timeblock) to fade from 
+								fully transparent at the start of the timeblock, 
+								to fully opaque at the end of the timeblock.&nbsp;&nbsp; 
+								To instead fade out, such as for 
+								PLAYER_SHIELDS_LOWERED, set the Fade value to 
+								"out".</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<p>Let's now look at a more complex example.&nbsp; Say you have 
+				a set of front shield lights that form a front shield strength
+				<a href="#How_to_create_a_gauge_using_a_series_of_lights">gauge</a> 
+				when shields are up.&nbsp;&nbsp; When you raise shields, you 
+				want the lights to gradually brighten from the previous color to 
+				whatever colors the gauge would normally show.&nbsp; When the 
+				shield strength level changes due to damage or repair, you want 
+				the lights to gradually transition to their new color.&nbsp;&nbsp; 
+				This is easy to accomplish with Artemis DMX Editor, as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> to edit your 
+								DMX command profile</li>
+								<li>Create a gauge (e.g., front shield strength) 
+								using the instructions under
+								<a href="#How_to_create_a_gauge_using_a_series_of_lights">
+								How to create a gauge using a series of lights</a><ul>
+												<li>Set the <strong>Time to fade 
+												in/out when set/cleared</strong> 
+												value to the time to fade in/out 
+												the color (e.g., 1500 for 
+												shields).&nbsp; This will result 
+												in it automatically adding 
+												fade-in entrance timeblocks and 
+												fade-out exit timeblocks when 
+												the gauge is created.</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h3>
+				<a name="How_to_make_an_effect_only_occur_based_on_some_other_condition">
+				How to make an effect only occur based on some other condition</a></h3>
+				<p>If you have an effect you want to occur only while two states 
+				are <em>both</em> true, or only when one is true and the other 
+				is false, you can now do this.&nbsp; For example, say you want 
+				one effect to play during forward impulse, and another one to 
+				play during reverse impulse, and neither to play when one is at 
+				a full stop.&nbsp;&nbsp; The stock Artemis SBS cannot do this, 
+				since HELM_IN_REVERSE plays even when at a full stop.&nbsp;&nbsp; 
+				Instead, you want to create one (say) IMPULSE_20 effect when 
+				REVERSE_IMPULSE is true, for the forward impulse effect, and 
+				another IMPULSE_20 effect when REVERSE_IMPULSE is false, for the 
+				reverse impulse effect.&nbsp;&nbsp;(See the
+				<a href="#New_DMX_Cues">New DMX Cues</a> table for further 
+				discussion of the difference between the native HELM_IN_REVERSE 
+				cue and the new REVERSE_IMPULSE cue.)&nbsp; Artemis Bridge Tools allows 
+				a command to optionally have an "if" condition to test before 
+				making the command become active.&nbsp;&nbsp; Currently the only 
+				condition supported is a simple check whether another State cue 
+				is true or false, which looks like this in your command profile:</p>
+				<p class="style7">&lt;event type="IMPULSE_20" continuous="yes"
+				<span class="style11"><strong>if="REVERSE_IMPULSE"</strong></span>&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!--reverse impulse--&gt;<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+				&lt;/event&gt;<br>
+				&lt;event type="IMPULSE_20" continuous="yes" <span class="style11">
+				<strong>if="!REVERSE_IMPULSE"</strong></span>&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!--forward impulse--&gt;<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+				&lt;/event&gt;</p>
+				<p>You can configure this in Artemis DMX Editor as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> to edit your 
+								DMX command profile</li>
+								<li>Create the effect normally.&nbsp; For 
+								example, create an IMPULSE_20 command.</li>
+								<li>Click the <strong>If</strong> column cell in 
+								the row for that command.&nbsp; The Condition 
+								screen will appear.</li>
+								<li>Set the <strong>State</strong> value to the 
+								cue to test (REVERSE_IMPULSE in the above 
+								example).</li>
+								<li>Set the <strong>Test</strong> value to the 
+								condition to test ("Is set" or "Is not set")</li>
+								<li>Click <strong>OK</strong></li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h3>
+				<a name="How_to_create_a_chase_effect_using_a_series_of_lights" class="anchor">How to create a chase effect using a series of lights</a></h3>
+				<p>Artemis DMX Editor supports easily creating a number of 
+				different chase effects, from a single moving light to a 
+				growing/shrinking line.</p>
+				<p>First, make sure you've configured your light strip:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices.&nbsp; If all of your lights appear and 
+								look correct, you're done.&nbsp; Otherwise, 
+								continue as follows.</li>
+								<li>Click <strong>Add Many</strong></li>
+								<li>Set <strong>Output device type </strong>to 
+								the right <a href="#Device_Types">device type</a> 
+								(typically dmx-3ch)</li>
+								<li>Set <strong># devices to add </strong>to the 
+								number of lights in the strip</li>
+								<li>Set <strong>First input channel</strong> to 
+								the first DMX channel address of the first light 
+								in the strip (remembering that the channel 
+								address is one higher than the "index" value 
+								used in the DMXcommands file)</li>
+								<li>Set <strong>ID prefix</strong> to a 
+								non-empty string to use to generate device IDs.&nbsp; 
+								For example, if you want a strip of 20 lights to 
+								be referred to as "L1" through "L20", then set
+								<strong>ID prefix</strong> to "L" without the 
+								quotes.&nbsp; (If you already have other lights 
+								starting with the same prefix, the next unused 
+								number will be used.)</li>
+								<li>Click <strong>OK </strong>to create the 
+								device entries</li>
+								<li>Click <strong>Save</strong> to save the 
+								device profile</li>
+				</ol>
+				<p>You're now ready to create a chase effect:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under Artemis 
+								DMX Commands</li>
+								<li>Add a new command by clicking <strong>Add</strong> 
+								under Command</li>
+								<li>Set the <strong>Cue</strong> to the cue you 
+								want to trigger the chase effect</li>
+								<li>Click the <strong>Chase Effect...</strong> 
+								button.&nbsp; (This button will be grayed out 
+								unless you have selected a row with a timeblock 
+								with no devices.)</li>
+								<li>In the <strong>Devices</strong> section, 
+								select the range of devices you want the chase 
+								effect to span.&nbsp; The <strong>First</strong> 
+								device will be the one to start the effect, and 
+								the <strong>Last</strong> device will be the one 
+								to end the effect.&nbsp; (That is, the <strong>
+								First<em> </em></strong>device may come after 
+								the <strong>Last</strong> device in your list if 
+								you want the effect to travel in the opposite 
+								direction.)</li>
+								<li>In the <strong>Time</strong> section, 
+								configure the duration of each step, which will 
+								be used to create one timeblock per step</li>
+								<li>In the <strong>Moving Color</strong> 
+								section, select the color to use for the effect 
+								(currently only single-color effects can be 
+								bulk-added).</li>
+								<li>Set the <strong>Move Effect</strong> to the 
+								kind of chase effect you want:<ul>
+												<li><strong>Single Light</strong> 
+												means a single light will move 
+												through the series of devices</li>
+												<li><strong>Appearing Line
+												</strong>means the First light 
+												will immediately come on, and 
+												each subsequent light will turn 
+												on in subsequent timeblocks</li>
+												<li><strong>Disappearing Line</strong> 
+												means all lights in the series 
+												start on, and the First light 
+												will immediately turn off, and 
+												each subsequent light will turn 
+												off in subsequent timeblocks.&nbsp; 
+												Thus the opposite of an 
+												Appearing Line from "L1" to "L5" 
+												(say, used for 
+												PLAYER_SHIELDS_RAISED), would be 
+												a Disappearing Line from "L5" to 
+												"L1" (say, used for 
+												PLAYER_SHIELDS_LOWERED).</li>
+								</ul>
+								</li>
+								<li>Set the <strong>Transition</strong> to the 
+								kind of transition you want:<ul>
+												<li><strong>Instantaneous</strong> 
+												means each timeblock makes the 
+												change instaneously (change="0" 
+												in the DMXcommands file)</li>
+												<li><strong>Gradual</strong> 
+												means the change happens 
+												gradually through the timeblock, 
+												with the "change" value computed 
+												automatically</li>
+								</ul>
+								</li>
+								<li>Click <strong>OK</strong> to add the 
+								timeblocks</li>
+								<li>Click <strong>Save </strong>to save your 
+								command profile</li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h3><a name="How_to_create_a_gauge_using_a_series_of_lights" class="anchor">How 
+				to create a gauge using a series of lights</a></h3>
+				<p>A "gauge" is when you have a set of lights that together 
+				indicate the value of something via how many lights are on, 
+				similar to the number of "bars" of signal strength on a cell 
+				phone. While you can create such effects manually, it often 
+				involves significant work and experimentation.&nbsp;&nbsp; 
+				Artemis DMX Editor currently allows you to easily create gauges 
+				for the following values by bulk-adding all the appropriate 
+				commands for you:</p>
+				<ul>
+								<li>Energy</li>
+								<li>Hull integrity</li>
+								<li>Impulse speed</li>
+								<li>Shield strength (front)</li>
+								<li>Shield strength (rear)</li>
+								<li>Warp speed</li>
+				</ul>
+				<p>To easily add a gauge for one of the above values:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under Artemis 
+								DMX Commands</li>
+								<li>To add the gauge commands in the middle of 
+								an existing file, select the row you want to add 
+								the commands after.&nbsp; If no row is selected, 
+								the gauge commands will be added at the end.</li>
+								<li>Click <strong>Add Gauge...</strong></li>
+								<li>Select the Command set (warp, impulse, etc.) 
+								you want a gauge for</li>
+								<li>Set the type to <strong>Put each cue on a 
+								separate light</strong>.&nbsp;&nbsp; The number 
+								of devices will be set to the number of DMX 
+								commands in that set.&nbsp; For example, since 
+								there are 4 warp speeds, it will take 4 lights to 
+								create a gauge.</li>
+								<li>In the <strong>Devices</strong> section, 
+								select the range of devices you want the gauge 
+								to span.</li>
+								<li>In the <strong>Colors</strong> section, set 
+								the <strong>First command color</strong> to the 
+								color to use for the first cue in the series 
+								(i.e., on the first light in the series). </li>
+								<li>By default, the <strong>Last command color</strong> 
+								(i.e., the color of the last cue in the series, 
+								to appear on the last light in the series) will 
+								be set to the same as the first color, so that 
+								all lights in the gauge will be the same color.&nbsp; 
+								However, you can optionally change it to another 
+								color, e.g., to create a gauge that goes from 
+								red at one end to green at the other end.</li>
+								<li>Optionally set the <strong>Time to fade 
+								in/out when set/cleared</strong> to a non-zero 
+								value if you want the gauge colors to change 
+								gradually rather than instantaneously.</li>
+								<li>Click <strong>OK</strong> to add the gauge</li>
+								<li>Click <strong>Save </strong>to save your 
+								command profile</li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h3>
+				<a name="How_to_stack_a_set_of_related_events_on_the_same_light" class="anchor">
+				How to stack a set of related events on the same light</a></h3>
+				<p>Often you want the color or brightness of a light to indicate 
+				the value of some important quantity. While you can create such 
+				effects manually, it often involves significant work and 
+				experimentation.&nbsp;&nbsp; Artemis DMX Editor currently allows 
+				you to easily create stacked effects for the following values by 
+				bulk-adding all the appropriate commands for you:</p>
+				<ul>
+								<li>Energy</li>
+								<li>Hull integrity</li>
+								<li>Impulse speed</li>
+								<li>Shield strength (front)</li>
+								<li>Shield strength (rear)</li>
+								<li>Warp speed</li>
+				</ul>
+				<p>To easily add a stacked effect for one of the above values:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under Artemis 
+								DMX Commands</li>
+								<li>To add the commands in the middle of an 
+								existing file, select the row you want to add 
+								the commands after.&nbsp; If no row is selected, 
+								the commands will be added at the end.</li>
+								<li>Click <strong>Add Gauge...</strong></li>
+								<li>Select the Command set (warp, impulse, etc.) 
+								you want to add an indicator for</li>
+								<li>Leave the type set to the default, which is
+								<strong>Stack effects on same light(s)</strong>.&nbsp;&nbsp; 
+								The number of devices will be set to the number 
+								of DMX commands in that set.&nbsp; For example, 
+								since there are 4 warp speeds, it will take 4 lights 
+								to create a gauge.</li>
+								<li>In the <strong>Devices</strong> section, 
+								select the range of devices you want the effect to span 
+								(normally just one device).&nbsp;&nbsp;&nbsp;&nbsp; </li>
+								<li>In the <strong>Colors</strong> section, set 
+								the <strong>First command color</strong> to the 
+								color to use for the first cue in the series. </li>
+								<li>Set the <strong>Last command color</strong> 
+								to the color to use for the last cue in the 
+								series.</li>
+								<li>Click <strong>OK</strong> to add the 
+								commands</li>
+								<li>Click <strong>Save </strong>to save your 
+								command profile</li>
+				</ol>
+				<p>That's it!&nbsp; You can now use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test</a> 
+				feature of Artemis DMX Editor to observe the effects, or just 
+				exit and run Artemis SBS normally.</p>
+				<h3>
+				<a name="How_to_trigger_playing_a_sound_file_in_response_to_a_DMX_cue" class="anchor">
+				How to trigger playing a sound file in response to a DMX cue</a></h3>
+				<p>Currently any sound file (.mp3, .wav, .wma, .au, .mid, and 
+				possibly more) file can be triggered in response to a DMX 
+				cue (endless looping effects are not yet supported, however).</p>
+				<p>Let's say you have a sound file named 
+				<a href="http://www.angelfire.com/ak3/mewtwo6/startrek/wavs/wavs.html">Data_Hail.wav</a> (a sound 
+				clip of Data saying "Captain, we are being hailed!") that you 
+				want to be played whenever an incoming transmission is received 
+				from an enemy, which the <a href="#New_DMX_Cues">new DMX cues 
+				table</a> tells us is the
+												INCOMING_COMMUNICATION_PRI0 cue.&nbsp; 
+				This can be done as follows.</p>
+				<p>First we add an audio device as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li>Click <strong>Add </strong>in the Virtual 
+								Input Devices section, change the # Channels to 
+								1, and rename the ID to whatever you want (call 
+								it, say, "Audio")</li>
+								<li>In the Associated Output Devices section, 
+								change the Device Type to audio-1ch</li>
+								<li>Click on the value after "Device:" (i.e., 
+								the third cell in the row) and select the 
+								desired audio device</li>
+								<li>Optionally click <strong>Test</strong> to 
+								verify that you picked the right device.&nbsp; A 
+								short sound will be played out that device.</li>
+								<li>Click <strong>OK</strong></li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>Next we need to associate a DMX value with the sound file, as follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>File</strong><span class="style4"><strong>→Audio 
+								Files...</strong></span></li>
+								<li>Decide on a unique value (1-255) for this 
+								sound clip.&nbsp; Say we want to use the value 
+								3.</li>
+								<li>Click the <strong>Add</strong> button in row 
+								3</li>
+								<li>Select the Data_Hail.wav file and click
+								<strong>Open</strong></li>
+								<li>Click <strong>Save</strong>. 
+								This file is now associated with the value 3 for 
+								any audio-1ch device you create.</li>
+				</ol>
+				<p>Finally, we need to associate the sound with a DMX cue as 
+				follows:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under Artemis 
+								DMX Commands</li>
+								<li>Click <strong>Add </strong>to add a new 
+								command, and change the cue to the desired cue 
+								(INCOMING_COMMUNICATION_PRI0 in this example)</li>
+								<li>Click in the Device cell of the newly 
+								created row and click Add to add a device</li>
+								<li>Set the device to the audio device you 
+								created (e.g., "Audio")</li>
+								<li>Click <strong>Change</strong>, since by 
+								default silence is associated</li>
+								<li>Select the sound effect (e.g., "Data_Hail") in 
+								the list of sound effects</li>
+								<li>Note the sound effect duration compared to 
+								the remaining command duration.&nbsp; If the 
+								sound effect duration is longer, this indicates 
+								that the sound will be cut off when the command 
+								ends and you may wish to update the timeblock 
+								duration.</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>That's it!&nbsp; You can now play Artemis and observe the 
+				effects, or use the
+				<a href="#How_to_test_and_debug_a_DMXcommands_profile">Test 
+				Active</a> feature of Artemis DMX Editor to test it.</p>
+				<p>The above steps will have created a command in your DMX 
+				commands file looking something like this:</p>
+				<p class="style7"><span class="style3">&lt;event 
+				type="INCOMING_COMMUNICATION_PRI0"&gt;<br>
+&nbsp;&nbsp;&nbsp; </span>&lt;<span class="style3">timeblock mseconds="1500"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&lt;<span class="style3">setvalue 
+				index="16" value="3" change="0"&gt;&lt;/setvalue&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- play Data_Hail on Audio --&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/timeblock&gt;<br>
+				&lt;/event&gt;</span></p>
+				<p>In the above example, the audio device was created to use DMX 
+				address 17 (i.e., index 16), with the value 3 to indicate the 
+				sound file we selected.&nbsp;&nbsp; The change attribute should be 
+				0 for sound effects, and the timeblock duration will affect 
+				the duration of the audio effect.&nbsp; The effect will be started 
+when the timeblock begins, and will play until either the sound clip 
+				finishes, or another value is set on the audio channel, or the 
+				last timeblock of the command ends, whichever comes first.</p>
+				<h3>
+				<a name="How_to_use_an_Enttec_DMX_Pro_controller_with_Artemis_SBS" class="anchor">
+				How to use an Enttec DMX Pro controller with Artemis SBS</a></h3>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li>For each device:<ul>
+												<li>Set <strong>Device Type</strong> 
+												to "dmxpro-1ch" or 
+												"dmxpro-3ch" or "dmxpro-4ch" 
+												depending on the number of 
+												channels</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>Note that Enttec DMX Pro support is provided by Artemis 
+				Bridge 
+				Tools, so if you uninstall Artemis Bridge Tools, support for Enttec 
+				DMX Pro controllers will also be removed.</p>
+				<h3>
+				<a class="anchor" name="How_to_use_an_Art-Net_controller_with_Artemis_SBS">How to use an 
+				Art-Net controller with Artemis SBS</a></h3>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li>For each device:<ul>
+												<li>Set <strong>Device Type</strong> 
+												to "artnet-1ch" or 
+												"artnet-3ch" or "artnet-4ch" 
+												depending on the number of 
+												channels</li>
+												<li>Click on the <strong>Param</strong> 
+												cell of the output device and 
+												enter the IP address of the DMX 
+												controller, and the universe 
+												value (if non-zero).&nbsp;&nbsp; 
+												This step should only be needed 
+												on the first Art-Net device.&nbsp; 
+												Subsequent devices should 
+												default to the same IP and 
+												universe as the previous one.</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>Note that Art-Net<sup>*</sup> support is provided by Artemis 
+				Bridge 
+				Tools, so if you uninstall Artemis Bridge Tools, support for 
+				Art-Net controllers will also be removed.</p>
+				<p><sup><span class="style15">*</span></sup><span class="style16">Art-Net</span><span class="style14">™ 
+				Designed by and Copyright Artistic License Holdings Ltd</span></p>
+				<h3>
+				<a name="How_to_use_a_UDMX_controller_with_Artemis_SBS" class="anchor">How to 
+				use a uDMX controller with Artemis SBS</a></h3>
+				<p>
+				The instructions below assume that you have previously installed 
+				the udmx.dll and libusb0.dll drivers that came with your 
+				controller, and that you have verified that your controller is 
+				working outside of Artemis (e.g., by using a utility that comes 
+				with your controller).</p>
+				<p>Artemis Bridge Tools will look for udmx.dll in the following 
+				locations and if not found, <span>you'll get an "Error: can't 
+				load UDMX.dll" message when trying to use the uDMX controller</span>:</p>
+				<ul>
+								<li><span>%SystemRoot%\system32</span></li>
+								<li><span>your Artemis directory</span></li>
+								<li><span>the directory where Artemis Bridge Tools 
+								is installed</span></li>
+				</ul>
+				<p>To use the controller with Artemis:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li>For each device:<ul>
+												<li>Set <strong>Device Type</strong> 
+												to "udmx-1ch" or 
+												"udmx-3ch" or "udmx-4ch" 
+												depending on the number of 
+												channels</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>Note that uDMX support is provided by Artemis Bridge 
+				Tools, so if you uninstall Artemis Bridge Tools, support for uDMX controllers will also be removed.</p>
+				<h3><a name="How_to_use_Philips_Hue_lights_with_Artemis_SBS" class="anchor">How to use Philips Hue lights with Artemis SBS</a></h3>
+				<p>To use Philips Hue lights, you will be configuring each Hue light 
+				by id.&nbsp; The id is always a number (e.g., "1", "2", "3", 
+				etc.), not the name (like "Living Room"), but you will be able 
+				to see the names as well during configuration.</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li><strong>Add</strong> a virtual input device 
+								for each Hue light</li>
+								<li>For each device added:<ul>
+												<li>Set <strong>First Channel</strong> 
+												to the <em>first</em> DMX 
+												channel to use</li>
+												<li>Set <strong># Channels</strong> 
+												to 3</li>
+												<li>Under Associated Output 
+												Devices, set <strong>Device Type</strong> 
+												to "hue"</li>
+												<li>Click on the row's <strong>Param</strong> 
+								cell to see all bulbs on the network</li>
+												<li>If the set of bulbs never 
+												show up and it just says 
+												"Searching...", you will need to 
+												configure the IP address by 
+												hand.&nbsp; You can find it 
+												either from
+												<a href="https://www.meethue.com/en-us/user/bridge">
+												https://www.meethue.com/en-us/user/bridge</a> 
+												(under "My Bridge Details") or 
+												by looking in your home router's 
+												status for a client named 
+												"Philips-hue" or similar.&nbsp; 
+												Enter the IP address and click
+												<strong>Refresh</strong>.</li>
+												<li>If the Status says "Please 
+												press the LINK button on the Hue 
+												hub", then press the button in 
+												the center of the hub, and the 
+												status should change to show 
+												"Authenticated".</li>
+												<li>Click on the desired bulb.&nbsp; 
+												Optionally click <strong>Test</strong> 
+												to verify that you've selected 
+												the right bulb.&nbsp;&nbsp; The 
+												bulb should flash red, then 
+												green, then blue, then white.</li>
+												<li>Click <strong>OK</strong>.</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>From this point on, the DMX channels selected will control 
+				the Hue lights, whenever they are used from Artemis or Artemis 
+				DMX Editor.&nbsp; Note: Hue lights by nature transition between 
+				colors gradually, not instantaneously.&nbsp; As such, they work 
+				best with effects with change="0".</p>
+				<p>If you encounter problems, here are some troubleshooting 
+				steps to check:</p>
+				<ol>
+								<li>Are you able to control your light(s) via 
+								the meethue.com web site and/or some app on your 
+								phone or PC? That would verify that your lights 
+								are working and that your hub has network 
+								connectivity.&nbsp;&nbsp; If this fails, check 
+								your hub's connection to the Internet.</li>
+								<li>Are you able to reach the Hue hub normally 
+								from your PC? You can find its IP address at
+								<a href="https://www.meethue.com/en-us/user/bridge">
+								https://www.meethue.com/en-us/user/bridge</a> 
+								(under More bridge details), or by logging onto 
+								your home router and looking at the set of 
+								attached devices for one with a name like 
+								"Philips-hue". Let's say your hub is 
+								192.168.1.5. If you then go to
+								<a href="http://192.168.1.5/">http://192.168.1.5</a> 
+								in a browser, you should see a simple web page 
+								presented by the Hue hub with a logo and some 
+								links on it. This verifies that your PC can 
+								actually reach the Hub directly.&nbsp;&nbsp; If 
+								this fails, check the connection between your PC 
+								and the hub.</li>
+								<li>Once you've verified the first two steps 
+								above, you can try going to<br>
+								<a href="http://192.168.1.5/api/0123456789abdcef0123456789abcdef/lights">
+								http://192.168.1.5/api/0123456789abdcef0123456789abcdef/lights</a> 
+								(again replacing 192.168.1.5 with your hub's IP 
+								address) from a browser.&nbsp;&nbsp; This is the 
+								URL that Artemis DMX Editor tries when you hit 
+								the Refresh button.&nbsp; (The 
+								0123456789abdcef0123456789abcdef is a default 
+								username which is probably wrong but will still 
+								generate a response from the hub.)&nbsp;&nbsp;&nbsp; 
+								Typically you should get a response that looks 
+								like this:<br>
+&nbsp;&nbsp;&nbsp; [{"error":{"type":1,"address":"/lights","description":"unauthorized 
+								user"}}]<br>
+								In the off chance that username string actually 
+								worked, it would instead have a long response 
+								that starts with something like this:<br>
+&nbsp;&nbsp;&nbsp; {"1":{"state": {"on":true,"bri":99,"hue":43690,"sat":0,"effect":"none","xy":[0.3
+								<em>more...<br>
+								</em>If you instead get an error from your 
+								browser, investigate that error.</li>
+								<li>Does your PC have multiple network 
+								interfaces? Do <strong>"route print"</strong> 
+								from a command prompt, and look for any lines 
+								starting with<br>
+&nbsp;&nbsp;&nbsp; 224.0.0.0 240.0.0.0 On-link<br>
+								You should usually see only two lines, one with 
+								127.0.0.1 and a higher (i.e. worse) metric, and 
+								one with another IP address and a lower (better) 
+								metric. Artemis DMX Tools currently uses only 
+								the one with the lowest metric, and looks for 
+								the Hue hub on that interface.</li>
+								<li>Make sure you're running the latest version 
+								of Artemis Bridge Tools (if you run Artemis DMX 
+								Editor, it will prompt you to upgrade if you're 
+								not).</li>
+								<li>Make sure you're running the latest Hue 
+								firmware for your hub (version
+								01030262<span data-config-swversion=""> at the 
+								time this guidance was written)</span>.&nbsp;&nbsp; 
+								You can find your version info at
+								<a href="https://www.meethue.com/en-us/user/bridge">
+								https://www.meethue.com/en-us/user/bridge</a>
+								</li>
+				</ol>
+				<h3><a name="How_to_use_LIFX_light_bulbs_with_Artemis_SBS" class="anchor">How to use 
+				LIFX light bulbs with Artemis SBS</a></h3>
+				<p>There are two kinds of LIFX light bulbs, ones that say 
+				"Designed for ALLSEEN" on the box and ones that don't 
+				(currently the white bulbs say "Designed for ALLSEEN" and the 
+				color ones don't, but this will change in the future as color 
+				ones will say that too).&nbsp; Artemis Bridge 
+				Tools supports both kinds.</p>
+				<p>To use a bulb that does <em>NOT</em> say "Designed for 
+				ALLSEEN" on the box:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li><strong>Add</strong> a virtual input device</li>
+								<li>Set <strong>First Channel</strong> 
+												to the <em>first</em> DMX 
+												channel to use (3 channels will 
+												be used)</li>
+								<li>Under Associated Output 
+												Devices, set <strong>Device Type</strong> 
+												to "lifx"</li>
+								<li>Click on the row's <strong>Param</strong> 
+								cell to see all bulbs on the network</li>
+								<li>Select the LIFX bulb to use, and 
+								(optionally) 
+								click <strong>Test </strong>to verify you picked 
+								the right one</li>
+								<li>Click <strong>OK</strong></li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>To use a bulb that <em>DOES</em> say "Designed for ALLSEEN" 
+				on the box:</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li><strong>Add</strong> a virtual input device</li>
+								<li>Set <strong>First Channel</strong> 
+												to the <em>first</em> DMX 
+								channel to use</li>
+								<li>Set <strong># Channels</strong> to 4</li>
+								<li>Under Associated Output 
+												Devices, set <strong>Device Type</strong> 
+												to "alljoyn"</li>
+												<li>Click on the row's <strong>Param</strong> 
+								cell to see all bulbs on the network.&nbsp;&nbsp;
+												<ul>
+																<li>Note: If you 
+																don't see the 
+																bulb under 
+																"Bulbs found" 
+																but instead see 
+																a device in the 
+																"Unconfigured 
+																devices found" 
+																section, it 
+																means the bulb 
+																is not yet on 
+																your WiFi 
+																network.&nbsp; 
+																You can either 
+																use the app that 
+																the bulb manual 
+																mentions, or 
+																simply click on 
+																the line, enter 
+																your WiFi 
+																passphrase in 
+																the Passphrase 
+																box, and click 
+																Configure.&nbsp;&nbsp; 
+																This may take a 
+																minute, and if 
+																it fails or 
+																seems to make no 
+																progress after 
+																more than a 
+																minute, simply 
+																cancel and try 
+																again.</li>
+												</ul>
+								</li>
+												<li>Click on the desired bulb 
+												under "Bulbs found".&nbsp; 
+												Optionally click <strong>Test</strong> 
+												to verify that you've selected 
+												the right bulb.&nbsp;&nbsp; The 
+												bulb should flash red, then 
+												green, then blue, then white.</li>
+												<li>Click <strong>OK</strong>.</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>From this point on, the DMX channels selected will control 
+				the LIFX lights, whenever they are used from Artemis or Artemis 
+				DMX Editor.</p>
+				<h3><a name="How_to_use_LimitlessLED_lights_with_Artemis">How to 
+				use LimitlessLED lights with Artemis</a></h3>
+				<p>To use 
+								<a href="http://www.limitlessled.com/">LimitlessLED</a> lights, you will be configuring each 
+				light group as if it were a 3-channel DMX light.&nbsp; The group is always a number 
+				in the range 1-4.&nbsp; For best performance, you should obtain 
+				the IP address of your LimitlessLED bridge beforehand (e.g., 
+				look it up on your WiFi router, where in the list of attached 
+				devices the bridge will typically show up with a MAC address 
+				starting with AC:CF:23).</p>
+				<ol>
+								<li>Run <strong>Artemis DMX Editor</strong></li>
+								<li>Click <strong>Edit...</strong> under DMX 
+								Devices</li>
+								<li><strong>Add</strong> a virtual input device 
+								for each group you want to control</li>
+								<li>For each virtual input device added:<ul>
+												<li>Set <strong>First Channel</strong> 
+												to the <em>first</em> DMX 
+												channel to use</li>
+												<li>Set <strong># Channels</strong> 
+												to 3</li>
+												<li>Under Associated Output 
+												Devices, set <strong>Device Type</strong> 
+												to "limitlessled"</li>
+												<li>Click on the row's <strong>Param</strong> 
+												cell.</li>
+												<li>If you know your bridge's IP 
+												address, enter it.&nbsp;&nbsp; 
+												The port number should be left 
+												as 8899 unless you have changed 
+												it on the bridge.</li>
+												<li>Enter the Group ID.</li>
+												<li>Click <strong>OK</strong>.</li>
+								</ul>
+								</li>
+								<li>Click <strong>Save</strong></li>
+				</ol>
+				<p>From this point on, the DMX channels selected will control 
+				the LimitlessLED lights, whenever they are used from Artemis or Artemis 
+				DMX Editor.&nbsp; Note: LimitlessLED lights by nature require 
+				100ms delay between being turned on and setting the color, and 
+				if you want to control multiple light groups they require 100ms 
+				delay when sending a command to a different group.&nbsp; Artemis 
+				Bridge Tools automatically handles this, but it means your 
+				lights can only change simultaneously when they are in the same 
+				group or on different bridges.</p>
+				<p>If you encounter problems, here are some troubleshooting 
+				steps to check:</p>
+				<ol>
+								<li>Are you able to control your light(s) via 
+								the an app on your 
+								phone or PC? That would verify that your lights 
+								are working and that your WiFi bridge has network 
+								connectivity.&nbsp;&nbsp; If this fails, check 
+								your bridge's connection to the network.</li>
+								<li>Are you able to reach the WiFi bridge 
+								normally from your PC?&nbsp; Let's say your 
+								bridge is 
+								192.168.1.36. If you then go to
+								<a href="http://192.168.1.36/">http://192.168.1.36</a> 
+								in a browser (user name "admin", password 
+								"admin" by default), and you should see a simple web page 
+								presented by the bridge.&nbsp;&nbsp; If 
+								this fails, check the connection between your PC 
+								and the bridge.</li>
+								<li>Make sure you're running the latest version 
+								of Artemis Bridge Tools (if you run Artemis DMX 
+								Editor, it will prompt you to upgrade if you're 
+								not).</li>
+				</ol>
+				<h2><a name="Technical_Details" class="anchor">Technical Details</a></h2>
+				<p><strong>Artemis SBS</strong> uses a
+				<a href="http://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer%27s_Guide%28FT_000071%29.pdf">
+				standard API</a> for talking to FTDI chips, which API is exposed 
+				by the ftd2xx.dll that comes with Artemis SBS.</p>
+				<p><strong>Artemis Bridge Tools</strong> has five components, three 
+				for DMX purposes and two for mission logging purposes: 
+				</p>
+				<ol>
+								<li>ArtemisDmxEditor.exe (the DMX settings editor), 
+								</li>
+								<li>a custom ftd2xx.dll that replaces the stock 
+								ftd2xx.dll and supports additional device types 
+								and DMX cues by sitting in between Artemis SBS 
+								and the original 
+								ftd2xx.dll,</li>
+								<li>ajdmx.dll which 
+				provides AllJoyn support and is only loaded if an AllJoyn light 
+								is configured,</li>
+								<li>ArtemisMissionBrowser.exe (the mission 
+								browser), and</li>
+								<li>ArtemisMissionLogger.exe which is 
+								automatically used by 
+								ftd2xx.dll to log mission stats and detect 
+								Artemis.exe crashing.</li>
+				</ol>
+				<p>To support the 
+				additional DMX cues, the custom ftd2xx.dll inspects
+				<a href="http://artemis-nerds.github.io/protocol-docs/">Artemis 
+				protocol</a> packets flowing between Artemis SBS and Winsock, so 
+				anything that is normally sent or received in an Artemis protocol message 
+				could be used to support new DMX cues.</p>
+				<p>To support mission logging, the custom ftd2xx.dll also 
+				detects starting a scripted mission and starts 
+				ArtemisMissionLogger.exe which runs only while a scripted 
+				mission is in progress.&nbsp;&nbsp; ArtemisMissionLogger.exe 
+				connects as another main screen console in order to get the 
+				ending stats or detect that the server has crashed.</p>
+				<p>Upon installation, Artemis Bridge 
+				Tools backs up the stock ftd2xx.dll as "ftd2xx-orig.dll" so it 
+				can be automatically restored if Artemis Bridge Tools is uninstalled.&nbsp; The 
+				current DMXcommands.xml is also backed up as 
+				"DMXcommands-orig.xml", since it is replaced by a custom 
+				DMXcommands.xml file that tells Artemis SBS to put each DMX cue 
+				on a separate channel for use by Artemis Bridge Tools itself (this is required for the logging feature, 
+				for instance).</p>
+				<p>The %LocalAppData%\ArtemisBridgeTools\ directory contains the 
+				files used by the <strong>Artemis Bridge Tools</strong> components:</p>
+				<ul>
+								<li><strong>ActiveProfileFileName.txt</strong>: 
+								contains the filename of the active DMXcommands 
+								file in use</li>
+								<li><strong>ArtemisLog.txt</strong>: the log of 
+								Artemis events, if logging is enabled</li>
+								<li><strong>DmxLog.txt</strong>: a log of DMX 
+								commands, if any output devices are configured with 
+								a
+								<strong>Device Type</strong> of "log-1ch" or "log-3ch" or 
+								"log-4ch"</li>
+								<li><strong>DmxDevices.xml</strong>: the device 
+								settings</li>
+								<li><strong>DMXcommands-*.xml</strong>: all 
+								command profiles created.&nbsp;&nbsp; The active 
+								one is the one listed in 
+								ActiveProfileFileName.txt</li>
+								<li><strong>MissionLog.csv</strong>: a log of 
+								mission statistics, suitable for viewing in 
+								Artemis Mission Browser or any spreadsheet.&nbsp; 
+								This file is created the first time a simulation 
+								ends.</li>
+				</ul>
+				<p>The following output<strong> <a name="Device_Types" class="anchor">Device Types</a> </strong>are supported:</p>
+				<ul>
+								<li><strong>dmx-1ch</strong>: 1-channel Enttec 
+								Open DMX 
+								device.&nbsp;&nbsp; The <strong>Param</strong> is 
+								the DMX channel address used by the device 
+								(NOT the 0-based index used in DMXcommands.xml)</li>
+								<li><strong>dmx-3ch</strong>: 3-channel Enttec 
+								Open DMX RGB 
+								light.&nbsp; The <strong>Param</strong> is 
+								the first DMX channel address used by the device 
+								(NOT the 0-based index used in DMXcommands.xml).</li>
+								<li><strong>dmx-4ch</strong>: 4-channel Enttec 
+								Open DMX RGB 
+								light (intensity, red, green, blue) such as
+								<a href="http://www.amazon.com/Stage-Light-Dmx-512-Lighting-Projector/dp/B00NEZZ5LC/ref=sr_1_7?s=musical-instruments&amp;ie=UTF8&amp;qid=1427993381&amp;sr=1-7&amp;keywords=DMX+lighting">
+								these</a>.&nbsp; Intensity is currently assumed to be in 
+								the range 0-127 (values 128-255 would result in strobing 
+								and is not currently supported by Artemis DMX 
+								Editor)</li>
+								<li><strong>dmxpro-1ch</strong>: 1-channel 
+								Enttec Pro DMX device</li>
+								<li><strong>dmxpro-3ch</strong>: 3-channel 
+								Enttec Pro DMX device</li>
+								<li><strong>dmxpro-4ch</strong>: 4-channel 
+								Enttec Pro DMX device</li>
+								<li><strong>artnet-1ch</strong>: 1-channel 
+								Art-Net DMX device.&nbsp; An Art-Net device
+								<strong>Param</strong> is of the form "<a href="mailto:channel@controlleraddress:universe"><em>channel</em>@<em>controlleraddress</em>:<em>universe</em></a>" 
+								where the universe defaults to 0 if not present.&nbsp; 
+								For example "<a href="mailto:3@192.168.1.100">3@192.168.1.100</a>" 
+								means DMX channel 3 on the controller at IP 
+								address 192.168.1.100, universe 0, and "<a href="mailto:6@192.168.1.100:1">6@192.168.1.100:1</a>" 
+								means DMX channel 6 on the controller at IP 
+								address 192.168.1.100, universe 1.</li>
+								<li><strong>artnet-3ch</strong>: 3-channel 
+								Art-Net DMX device.</li>
+								<li><strong>artnet-4ch</strong>: 4-channel 
+								Art-Net DMX device.</li>
+								<li><strong>udmx-1ch</strong>: 1-channel DMX 
+								device that uses a udmx.dll driver</li>
+								<li><strong>udmx-3ch</strong>: 3-channel DMX 
+								device that uses a udmx.dll driver</li>
+								<li><strong>udmx-4ch</strong>: 4-channel DMX 
+								device that uses a udmx.dll driver</li>
+								<li><strong>emul-dmx-1ch</strong>: 1-channel 
+								emulated DMX device (emulated lights will 
+								display in a separate window on screen for 
+								debugging purposes)</li>
+								<li><strong>emul-dmx-3ch</strong>: 3-channel 
+								emulated DMX RGB light</li>
+								<li><strong>emul-dmx-4ch</strong>: 4-channel 
+								emulated DMX RGB light</li>
+								<li><strong>audio-1ch</strong>: audio channel, 
+								where the BYTE value indicates a sound file to 
+								play</li>
+								<li><strong>log-1ch</strong>: log 1 channel to 
+								DmxLog.txt</li>
+								<li><strong>log-3ch</strong>: log 3 channels to 
+								DmxLog.txt</li>
+								<li><strong>log-4ch</strong>: log 4 channels to 
+								DmxLog.txt</li>
+								<li><strong>hue</strong>: expose a Philips Hue 
+								light as if it were a 3-channel RGB light.&nbsp; 
+								The <strong>Param</strong> is the light ID 
+								used by the Hue hub, typically "1", '2", "3", 
+								etc.&nbsp; Optionally the ID can be suffixed 
+								with a colon and a username.&nbsp; And 
+								optionally the ID can be prefixed with the IP 
+								address of the Hue hub, enclosed in square 
+								brackets.&nbsp; For example, "1" means light ID 
+								1, dynamically discovering the IP address of the 
+								Hue hub, and using the default username of 
+								"0123456789abdcef0123456789abcdef".&nbsp; As 
+								another example, 
+								"[192.168.1.5]1:1a9abb1917f765972b41db5d27518c9b" 
+								means bulb 1 via the hub at 192.168.1.5 using a 
+								username of "1a9abb1917f765972b41db5d27518c9b". </li>
+								<li><strong>lifx</strong>: expose a (non-AllJoyn) 
+								LIFX light as if it were a 3-channel RGB light.&nbsp; 
+								The <strong>Param</strong> is the bulb's 
+								configurable "label".</li>
+								<li><strong>limitlessled</strong>: expose a 
+								group of
+								<a href="http://www.limitlessled.com/">Limitless 
+								LED</a> lights as if it was a 3-channel RGB 
+								light.&nbsp; The <strong>Param</strong> is of 
+								the form "<em>group</em>[@<em>IPAddress</em>[:<em>Port</em>]]" 
+								where [] indicates optional pieces, <em>group</em> 
+								is a group number 1-4, <em>IPAddress</em> is the 
+								IP address of the LimitlessLED bridge (default: 
+								255.255.255.255), and <em>Port</em> is the UDP 
+								Command Port of the LimitlessLED bridge 
+								(default: 8899).&nbsp; For example, "<a href="mailto:2@192.168.1.36">2@192.168.1.36</a>" 
+								means group 2 on the bridge at 192.168.1.36 port 
+								4489.</li>
+								<li><strong>alljoyncontroller</strong>: expose 
+								an
+								<a href="https://allseenalliance.org/showcase">
+								AllJoyn</a>-enabled lamp via an AllJoyn lighting 
+								controller as if it were a 4-channel RGB light.&nbsp; 
+								The <strong>Param </strong>is the Lamp ID 
+								used by the lighting controller.</li>
+								<li><strong>alljoyn</strong>: expose an AllJoyn-enabled 
+								lamp (e.g., 
+								<a href="http://www.bestbuy.com/site/lifx-white-800-890-lumen-11w-adjustable-a19-e26-led-wi-fi-led-light-bulb-60w-equivalent-white/9634099.p?id=1219430510648&amp;skuId=9634099">LIFX</a>) directly, as if it were a 
+								4-channel RGB light.&nbsp; The <strong>Param</strong> 
+								is the AllJoyn Device ID of the lamp.</li>
+				</ul>
+				<p>The same Virtual Input Device (i.e., DMX channels as used by 
+				Artemis) can be used by 
+				multiple associated output devices, if you want to mirror the same DMX 
+				commands to multiple devices (such as a DMX device and a log).&nbsp;&nbsp; 
+				However the combination of <strong>Device Type</strong> and
+				<strong>Param</strong> should be unique for each device 
+				entry.</p>
+				<p>If you later replace a 3-channel light with a 4-channel 
+				light, or vice versa, Artemis DMX Editor can convert your 
+				DMXcommands profile for you.&nbsp; To do this, first create a 
+				new DMX device profile, then edit your command profile and 
+				switch the DMX device profile to the newly created one.&nbsp;&nbsp; 
+				At the prompt, select "Attempt to convert the Artemis DMX 
+				command profile from the old devices to the new devices".</p>
+				<h3><a name="New_DMX_Cues" class="anchor">New DMX Cues</a></h3>
+				<p>The following DMX cues are added to the list of ones 
+				supported natively by Artemis SBS.&nbsp; See the
+				<a href="http://artemiswiki.pbworks.com/w/page/68387680/DMX%20Cues">
+				DMX cues wiki page</a> for more details on how DMX cues work.</p>
+				<table style="width: 100%" class="style5">
+								<tbody><tr>
+												<td><strong>
+												Category</strong></td>
+												<td><strong>Event 
+												Tag</strong></td>
+												<td class="style6"><strong>Type</strong></td>
+												<td class="style6"><strong>Notes</strong></td>
+								</tr>
+								<tr>
+												<td class="style6">Helm</td>
+												<td class="style6">WARP_1</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">WARP_2</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">WARP_3</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">WARP_4</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_1</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse &gt;= 1, cleared on full 
+												stop (not simply when throttle 
+												is at 0)</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_20</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse &gt;= 20, cleared when &lt; 20.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;IMPULSE_1 when 
+												both affect the same channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_40</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse &gt;= 40, cleared when &lt; 40.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;IMPULSE_20 when 
+												both affect the same channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_60</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse &gt;= 60, cleared when &lt; 60.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;IMPULSE_40 when 
+												both affect the same channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_80</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse &gt;= 80, cleared when &lt; 80.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;IMPULSE_60 when 
+												both affect the same channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">IMPULSE_100</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												impulse reaches 100, cleared 
+												when &lt; 100.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;IMPULSE_80 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REVERSE_IMPULSE</td>
+												<td class="style6">State</td>
+												<td class="style6">Set whenever 
+												ship is moving in reverse.&nbsp; 
+												This differs from 
+												HELM_IN_REVERSE in two ways.&nbsp; 
+												First, if you use a joystick 
+												throttle to move in reverse 
+												rather than selecting the 
+												Reverse setting, HELM_IN_REVERSE 
+												will not be set whereas 
+												REVERSE_IMPULSE will be set (it 
+												will also be set if 
+												HELM_IN_REVERSE is set and the 
+												ship is actually moving in 
+												reverse).&nbsp; Second, 
+												HELM_IN_REVERSE remains set even 
+												if the ship is stopped, whereas 
+												REVERSE_IMPULSE does not.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												JUMP_IN_PROGRESS</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when jump 
+												countdown is initiated (same as 
+												when JUMP_INITIATED event is 
+												fired) and cleared when jump is 
+												executed (same as JUMP_EXECUTED 
+												event) or fizzled (JUMP_FIZZLED 
+												event)</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Weapons</td>
+												<td class="style6">BEAM_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when any beam is fired</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM1_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #1 fired</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM2_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #2 fired</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM3_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #3 fired (such as on a 
+												Battleship with 4 beams)</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM4_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #4 fired (such as on a 
+												Battleship with 4 beams)</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM5_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #5 fired.&nbsp; No 
+												stock ships have more than 4 
+												beams, but some mods have 
+												additional ship types that may.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM6_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #6 fired.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM7_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #7 fired.&nbsp; No 
+												stock ships have more than 4 
+												beams, but some mods have 
+												additional ship types that may.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM8_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #8 fired.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM9_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #9 fired.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">BEAM10_FIRED</td>
+												<td class="style6">Event</td>
+												<td class="style6">Triggered 
+												when beam #10 fired.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE1_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE1_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE2_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE2_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE3_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE3_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE4_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE4_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE5_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">While no 
+												stock ship types have more than 
+												4 tubes, some mods have 
+												additional ship types that may 
+												have up to 6 tubes.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE5_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">TUBE6_EMPTY</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_LOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_LOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_LOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_LOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_LOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_READY_TO_FIRE_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_READY_TO_FIRE_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_READY_TO_FIRE_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_READY_TO_FIRE_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_READY_TO_FIRE_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_UNLOADING_HOMING</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_UNLOADING_NUKE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_UNLOADING_MINE</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_UNLOADING_EMP</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_UNLOADING_PSHOCK</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_FIRED_HOMING</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_FIRED_NUKE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_FIRED_MINE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_FIRED_EMP</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												TUBE6_FIRED_PSHOCK</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Engineering</td>
+												<td class="style6">
+												SYSTEM_OVERHEATING</td>
+												<td class="style6">State</td>
+												<td class="style6">Set if any 
+												system is overheating (&gt;80% 
+												heat)</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Science</td>
+												<td class="style6">
+												SCAN_INITIATED</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												SCAN_IN_PROGRESS</td>
+												<td class="style6">State</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">SCAN_COMPLETE</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Comms</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI0</td>
+												<td class="style6">Event</td>
+												<td class="style6">transmission 
+												from enemy</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI1</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI2</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI3</td>
+												<td class="style6">Event</td>
+												<td class="style6">base 
+												destroyed</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI4</td>
+												<td class="style6">Event</td>
+												<td class="style6">base under 
+												attack, refusal from neutral 
+												ships, docking complete</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI5</td>
+												<td class="style6">Event</td>
+												<td class="style6">base 
+												accepting build orders or 
+												docking request</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI6</td>
+												<td class="style6">Event</td>
+												<td class="style6">friendly ship 
+												accepting orders, status 
+												response from base, notice of 
+												ordnance built, message from GM</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI7</td>
+												<td class="style6">Event</td>
+												<td class="style6">mission 
+												available from ship or base, 
+												mission transfer complete</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												INCOMING_COMMUNICATION_PRI8</td>
+												<td class="style6">Event</td>
+												<td class="style6">outgoing 
+												message such as a request to 
+												surrender, message between 
+												player ships</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Fighter</td>
+												<td class="style6">
+												FIGHTER_LAUNCHED</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												FIGHTER_DOCKED</td>
+												<td class="style6">Event</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												ALL_FIGHTERS_DOCKED</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when all 
+												remaining fighters are docked.&nbsp; 
+												Clear when at least one fighter 
+												is still alive outside the 
+												capital ship.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Damage</td>
+												<td class="style6">
+												FRONT_SHIELD_20</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												front shields &gt; 20%, cleared 
+												when &lt; 20%.&nbsp;&nbsp; The 
+												FRONT_SHIELD_* and REAR_SHIELD_* 
+												cues are typically used <em>
+												instead of</em> using 
+												PLAYER_SHIELDS_ON.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												FRONT_SHIELD_40</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												front shields &gt; 40%, cleared 
+												when &lt; 40%.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;FRONT_SHIELD_20 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												FRONT_SHIELD_60</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												front shields &gt; 60%, cleared 
+												when &lt; 60%.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;FRONT_SHIELD_40 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												FRONT_SHIELD_80</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												front shields &gt; 80%, cleared 
+												when &lt; 80%.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;FRONT_SHIELD_60 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												FRONT_SHIELD_100</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												front shields at %100, cleared 
+												when &lt; 100%.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;FRONT_SHIELD_80 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REAR_SHIELD_20</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												rear shields &gt; 20%, cleared when 
+												&lt; 20%.&nbsp; The 
+												FRONT_SHIELD_* and REAR_SHIELD_* 
+												cues are typically used <em>
+												instead of</em> using 
+												PLAYER_SHIELDS_ON.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REAR_SHIELD_40</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												rear shields &gt; 40%, cleared when 
+												&lt; 40%.&nbsp; Normally this 
+												should be placed <em>after</em>&nbsp;REAR_SHIELD_20 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REAR_SHIELD_60</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												rear shields &gt; 60%, cleared when 
+												&lt; 60%.&nbsp; Normally this 
+												should be placed <em>after</em>&nbsp;REAR_SHIELD_40 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REAR_SHIELD_80</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												rear shields &gt; 80%, cleared when 
+												&lt; 80%.&nbsp; Normally this 
+												should be placed <em>after</em>&nbsp;REAR_SHIELD_60 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												REAR_SHIELD_100</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when 
+												rear shields at %100, cleared 
+												when &lt; 100%.&nbsp; Normally 
+												this should be placed <em>after</em>&nbsp;REAR_SHIELD_80 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												HULL_INTEGRITY_40</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when hull 
+												integrity &gt;= 40% (ship is 
+												destroyed at about 30%).&nbsp; 
+												This state is the opposite of 
+												SHIP_DAMAGE_60, except that it 
+												is more reliable, such as being 
+												affected by damage from all 
+												sources including overheating.&nbsp;&nbsp; 
+												The HILL_INTEGRITY_* cues are 
+												typically used <em>instead of</em> 
+												using the SHIP_DAMAGE_* cues.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												HULL_INTEGRITY_60</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when hull 
+												integrity &gt;= 60%.&nbsp; This 
+												state is the opposite of 
+												SHIP_DAMAGE_40, except that it 
+												is more reliable, such as being 
+												affected by damage from all 
+												sources including overheating.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;HULL_INTEGRITY_40 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												HULL_INTEGRITY_80</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when hull 
+												integrity &gt;= 80%.&nbsp; This 
+												state is the opposite of 
+												SHIP_DAMAGE_20, except that it 
+												is more reliable, such as being 
+												affected by damage from all 
+												sources including overheating.&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;HULL_INTEGRITY_60 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												HULL_INTEGRITY_100</td>
+												<td class="style6">State</td>
+												<td class="style6">Set when hull 
+												integrity at 100% (undamaged).&nbsp; 
+												Normally this should be placed
+												<em>after</em>&nbsp;HULL_INTEGRITY_80 
+												when both affect the same 
+												channels.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Game</td>
+												<td class="style6">
+												ALWAYS_ON</td>
+												<td class="style6">State</td>
+												<td class="style6">This state is 
+												always on.&nbsp; It is most 
+												useful to place <em>before</em> 
+												NORMAL_CONDITION_1 to have 
+												effects (such as ambient 
+												lighting) that are present when 
+												a simulation is not in progress 
+												and are overridden by 
+												NORMAL_CONDITION_1 when a 
+												simulation is in progress.&nbsp;&nbsp; 
+												Any device commands set by this 
+												cue will also remain in effect 
+												after Artemis exits.&nbsp; All 
+												others will be cleared.</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												GAME_PAUSED</td>
+												<td class="style6">State</td>
+												<td class="style6">Set if game 
+												is paused</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">&nbsp;</td>
+								</tr>
+								<tr>
+												<td class="style6">Custom</td>
+												<td class="style6">
+												CUSTOM_EVENT_1</td>
+												<td class="style6">Event</td>
+												<td class="style6">Set by dmxset 
+												command in mission script or 
+												tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_EVENT_2</td>
+												<td class="style6">Event</td>
+												<td class="style6">Set by dmxset 
+												command in mission script or 
+												tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_EVENT_3</td>
+												<td class="style6">Event</td>
+												<td class="style6">Set by dmxset 
+												command in mission script or 
+												tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_EVENT_4</td>
+												<td class="style6">Event</td>
+												<td class="style6">Set by dmxset 
+												command in mission script or 
+												tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_STATE_1</td>
+												<td class="style6">State</td>
+												<td class="style6">Set and 
+												cleared by dmxset command in 
+												mission script or tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_STATE_2</td>
+												<td class="style6">State</td>
+												<td class="style6">Set and 
+												cleared by dmxset command in 
+												mission script or tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_STATE_3</td>
+												<td class="style6">State</td>
+												<td class="style6">Set and 
+												cleared by dmxset command in 
+												mission script or tracing socket</td>
+								</tr>
+								<tr>
+												<td class="style6">&nbsp;</td>
+												<td class="style6">
+												CUSTOM_STATE_4</td>
+												<td class="style6">State</td>
+												<td class="style6">Set and 
+												cleared by dmxset command in 
+												mission script or tracing socket</td>
+								</tr>
+				</tbody></table>
+				<h2><a name="TODO" class="anchor">TODO</a></h2>
+				<p>The following are potential future features, in no particular 
+				order.&nbsp; Feel free to suggest others, or ask for 
+				prioritizing one.</p>
+				<ol>
+								<li>Support 4-channel lights with brightness 
+								ranges other than 0-127 (requested by Kip 
+								Murray)</li>
+								<li>Support video effects, similar to how audio 
+								effects are supported now (requested by AmnonLiu)</li>
+								<li>Support continuous (i.e., looping) audio 
+								effects</li>
+								<li>Support other types of smart objects, 
+								such as a
+								<a href="http://www.amazon.com/SmartThings-CEN-APP-PLUG-1-SmartPower-Outlet/dp/B00MI5V5N6/ref=sr_1_1?ie=UTF8&amp;qid=1427986394&amp;sr=8-1&amp;keywords=smartpower">SmartThings SmartPower Outlet</a>, into which 
+								you can plug any device.</li>
+				</ol>
+				<h2><a name="Contact" class="anchor">Contact</a></h2>
+				<p>Send bug reports and feature requests to
+				<a href="mailto:dthaler@microsoft.com">dthaler@microsoft.com</a>
+				</p>
+</div>
+<div id="footer">
+				Copyright <span class="style4">©</span> Armidale Software</div>
+
+
+
+
+</body></html>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DMX_CONTROL version="2.00" deviceProfile="WS2811 (1)">
+	<!-- ********************************************************************************************* -->
+	<event type="ALWAYS_ON">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="255" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+
+	<event type="NORMAL_CONDITION_1" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="5" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+			<setvalue index="10" value="5" change="0"></setvalue>
+			<!-- intensity value of L2 -->
+			<setvalue index="20" value="0" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+			<setvalue index="30" value="5" change="0"></setvalue>
+			<!-- intensity value of L4 -->
+			<setvalue index="40" value="5" change="0"></setvalue>
+			<!-- intensity value of L5 -->
+			<setvalue index="50" value="5" change="0"></setvalue>
+			<!-- intensity value of L6 -->
+			<setvalue index="60" value="5" change="0"></setvalue>
+			<!-- intensity value of L7 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENERGY_100" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="1" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENERGY_80" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="2" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENERGY_60" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="3" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENERGY_40" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="4" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENERGY_20" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="0" value="5" change="0"></setvalue>
+			<!-- intensity value of L1 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="WITHIN_NEBULA" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="10" value="25" change="0"></setvalue>
+			<!-- intensity value of L2 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="ENTERING_NEBULA">
+		<timeblock mseconds="100">
+			<setvalue index="10" value="35" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="EXITING_NEBULA">
+		<timeblock mseconds="100">
+			<setvalue index="10" value="45" change="0"></setvalue>
+			<!-- intensity value of L4 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="SOMETHING_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="15" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="NPC_BEAM_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="15" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="PLAYER_BEAM_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="15" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="DRONE_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="25" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="MINE_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="25" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="TORPEDO_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="35" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="COLLISION_HITS_PLAYER">
+		<timeblock mseconds="100">
+			<setvalue index="20" value="45" change="0"></setvalue>
+			<!-- intensity value of L3 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="PLAYER_TAKES_SHIELD_DAMAGE">
+		<timeblock mseconds="100">
+			<setvalue index="30" value="25" change="0"></setvalue>
+			<!-- intensity value of L4 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="PLAYER_TAKES_INTERNAL_DAMAGE">
+		<timeblock mseconds="100">
+			<setvalue index="30" value="15" change="0"></setvalue>
+			<!-- intensity value of L4 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="PLAYER_SHIELDS_ON" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="40" value="25" change="0"></setvalue>
+			<!-- intensity value of L5 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="HULL_INTEGRITY_80" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="50" value="15" change="0"></setvalue>
+			<!-- intensity value of L6 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="HULL_INTEGRITY_60" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="50" value="25" change="0"></setvalue>
+			<!-- intensity value of L6 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="HULL_INTEGRITY_40" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="50" value="35" change="0"></setvalue>
+			<!-- intensity value of L6 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="WARP_1" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="60" value="15" change="0"></setvalue>
+			<!-- intensity value of L7 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="WARP_2" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="60" value="25" change="0"></setvalue>
+			<!-- intensity value of L7 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="WARP_3" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="60" value="35" change="0"></setvalue>
+			<!-- intensity value of L7 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="WARP_4" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="60" value="45" change="0"></setvalue>
+			<!-- intensity value of L7 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="JUMP_INITIATED">
+		<timeblock mseconds="100">
+			<setvalue index="70" value="25" change="0"></setvalue>
+			<!-- intensity value of L8 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="JUMP_EXECUTED">
+		<timeblock mseconds="100">
+			<setvalue index="70" value="15" change="0"></setvalue>
+			<!-- intensity value of L8 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="JUMP_FIZZLED">
+		<timeblock mseconds="100">
+			<setvalue index="70" value="3" change="0"></setvalue>
+			<!-- intensity value of L8 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_EVENT_1">
+		<timeblock mseconds="100">
+			<setvalue index="254" value="1" change="0"></setvalue>
+			<!-- intensity value of L10 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_EVENT_2">
+		<timeblock mseconds="100">
+			<setvalue index="254" value="2" change="0"></setvalue>
+			<!-- intensity value of L10 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_EVENT_3">
+		<timeblock mseconds="100">
+			<setvalue index="254" value="3" change="0"></setvalue>
+			<!-- intensity value of L10 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_EVENT_4">
+		<timeblock mseconds="100">
+			<setvalue index="254" value="4" change="0"></setvalue>
+			<!-- intensity value of L10 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_STATE_1" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="255" value="1" change="0"></setvalue>
+			<!-- intensity value of L11 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_STATE_2" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="255" value="2" change="0"></setvalue>
+			<!-- intensity value of L11 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_STATE_3" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="255" value="3" change="0"></setvalue>
+			<!-- intensity value of L11 -->
+		</timeblock>
+	</event>
+	<!-- ********************************************************************************************* -->
+	<event type="CUSTOM_STATE_4" continuous="yes">
+		<timeblock mseconds="100">
+			<setvalue index="255" value="4" change="0"></setvalue>
+			<!-- intensity value of L11 -->
+		</timeblock>
+	</event>
+</DMX_CONTROL>
