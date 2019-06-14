@@ -1,5 +1,5 @@
 # Lighting System Implementation for [Artemis Spaceship Bridge Simulator](https://artemisspaceshipbridge.com)
-//TODO abstract
+Lighting system to be used with the Artemis Spaceship Bridge Simulator
 
 ## Requirements
 ### Hardware
@@ -10,7 +10,5 @@
 - Artemis Spaceship Bridge Simulator (duh)
 
 ## Setup
-//TODO setup and wiring
 
-## Configuration
-//TODO high-level configuration
+Connect WS2811 strips to pins 6 and 7 for right and left side respectively, hang them as ceiling lights. Use a Duemilanove, since most modern Arduinos won't be recognized as DMX device by Artemis.
